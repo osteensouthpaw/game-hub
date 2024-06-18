@@ -22,7 +22,9 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   if (isLoading) return <Spinner />;
   return (
     <>
-      <Heading fontSize={'2xl'} marginBottom={3}>Genres</Heading>
+      <Heading fontSize={"2xl"} marginBottom={3}>
+        Genres
+      </Heading>
       <List>
         {data.results.map((genre) => (
           <ListItem key={genre.id} paddingY={1.5}>
@@ -34,7 +36,8 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
                 src={getCroppedUrl(genre.image_background)}
               />
               <Button
-                textAlign={"right"}
+                textAlign={"left"}
+                whiteSpace="normal"
                 fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
                 onClick={() => onSelectGenre(genre)}
                 fontSize={"large"}
