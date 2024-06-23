@@ -6,9 +6,13 @@ import {
   List,
   ListItem,
   Spinner,
+  Text,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedUrl from "../services/image-url";
+import { useState } from "react";
+import genres from "../data/genres";
+import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
@@ -16,17 +20,25 @@ interface Props {
 }
 
 const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+  const [showAll, setShowAll] = useState(false);
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
   if (isLoading) return <Spinner />;
+
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+  };
+
+  const genresToShow = showAll ? genres.results : genres.results.slice(0, 3);
+
   return (
     <>
       <Heading fontSize={"2xl"} marginBottom={3}>
         Genres
       </Heading>
       <List>
-        {data.results.map((genre) => (
+        {genresToShow.map((genre) => (
           <ListItem key={genre.id} paddingY={1.5}>
             <HStack>
               <Image
@@ -49,6 +61,17 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
           </ListItem>
         ))}
       </List>
+      {genres.results.length > 3 && (
+        <Button
+          marginTop={2}
+          variant="link"
+          leftIcon={showAll ? <BsChevronUp /> : <BsChevronDown />}
+          onClick={toggleShowAll}
+          color="gray.500"
+        >
+          {showAll ? "Show less" : "Show more"}
+        </Button>
+      )}
     </>
   );
 };
