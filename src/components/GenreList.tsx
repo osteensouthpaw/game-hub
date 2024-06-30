@@ -30,7 +30,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
     setShowAll(!showAll);
   };
 
-  const genresToShow = showAll ? genres.results : genres.results.slice(0, 3);
+  const genresToShow = showAll ? data?.results : data?.results.slice(0, 3);
 
   return (
     <>
@@ -38,7 +38,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
         Genres
       </Heading>
       <List>
-        {genresToShow.map((genre) => (
+        {genresToShow?.map((genre) => (
           <ListItem key={genre.id} paddingY={1.5}>
             <HStack>
               <Image
