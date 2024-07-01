@@ -14,11 +14,14 @@ import genres from "../data/genres";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 interface Props {
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  onSelectGenre: (genreId: number) => void;
+  selectedGenreId: number | undefined;
 }
 
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = ({
+  selectedGenreId: selectedGenre,
+  onSelectGenre,
+}: Props) => {
   const [showAll, setShowAll] = useState(false);
   const { data, isLoading, error } = useGenres();
 
@@ -49,8 +52,8 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
               <Button
                 textAlign={"left"}
                 whiteSpace="normal"
-                fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
-                onClick={() => onSelectGenre(genre)}
+                fontWeight={selectedGenre === genre.id ? "bold" : "normal"}
+                onClick={() => onSelectGenre(genre.id)}
                 fontSize={"large"}
                 variant="link"
               >
