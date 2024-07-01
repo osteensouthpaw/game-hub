@@ -46,7 +46,7 @@ function App() {
           <GameHeading gameQuery={gameQuery} />
           <HStack spacing={5} marginBottom={5}>
             <PlatformSelector
-              selectedPlatform={gameQuery.platformId}
+              selectedPlatformId={gameQuery.platformId}
               onSelectPlatform={(platformId) =>
                 setGameQuery({ ...gameQuery, platformId })
               }

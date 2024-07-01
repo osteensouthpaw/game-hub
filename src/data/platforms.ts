@@ -1,4 +1,7 @@
 export default {
+  count: 14,
+  next: null,
+  previous: null,
   results: [
     {
       id: 1,
@@ -9,9 +12,9 @@ export default {
           id: 4,
           name: "PC",
           slug: "pc",
-          games_count: 532204,
+          games_count: 532253,
           image_background:
-            "https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg",
+            "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg",
           image: null,
           year_start: null,
           year_end: null,
@@ -198,9 +201,9 @@ export default {
           id: 5,
           name: "macOS",
           slug: "macos",
-          games_count: 104249,
+          games_count: 104254,
           image_background:
-            "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+            "https://media.rawg.io/media/games/ec3/ec3a7db7b8ab5a71aad622fe7c62632f.jpg",
           image: null,
           year_start: null,
           year_end: null,
@@ -238,9 +241,9 @@ export default {
           id: 6,
           name: "Linux",
           slug: "linux",
-          games_count: 77164,
+          games_count: 77166,
           image_background:
-            "https://media.rawg.io/media/games/b7b/b7b8381707152afc7d91f5d95de70e39.jpg",
+            "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg",
           image: null,
           year_start: null,
           year_end: null,

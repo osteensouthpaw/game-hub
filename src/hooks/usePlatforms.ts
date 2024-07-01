@@ -15,14 +15,10 @@ const usePlatforms = () => {
     queryKey: ["platforms"],
     queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000, //24hrs (one da
-    initialData: {
-      count: platforms.results.length,
-      results: platforms.results,
-    },
+    initialData: platforms,
   });
 
   return { data, error, isLoading };
 };
-// const usePlatforms = () => useData<Platform>("/platforms/lists/parents");
 
 export default usePlatforms;
