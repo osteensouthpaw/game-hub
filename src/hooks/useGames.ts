@@ -10,12 +10,14 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
+  slug: string;
+  description_raw: string;
 }
 
 const apiClient = new APIClient<Game>("/games");
 
 const useGames = () => {
-  const gameQuery = useGameQueryStore(s => s.gameQuery);
+  const gameQuery = useGameQueryStore((s) => s.gameQuery);
   return useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],
     queryFn: ({ pageParam = 1 }) =>
@@ -28,7 +30,7 @@ const useGames = () => {
           page: pageParam,
         },
       }),
-    staleTime: ms('24h'), //24hrs
+    staleTime: ms("24h"), //24hrs
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
