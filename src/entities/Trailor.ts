@@ -1,6 +1,6 @@
-import { Data } from "./useTrailers";
+import { Data } from "../hooks/useTrailers";
 
-export interface Trailor {
+export default interface Trailor {
   id: number;
   name: string;
   preview: string;
