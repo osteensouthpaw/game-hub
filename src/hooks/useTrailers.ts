@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-client";
-import { Trailer } from "../entities/Trailor";
+import { Trailor } from "../entities/Trailor";
 
 export interface Data {
   480: string;
@@ -8,7 +8,7 @@ export interface Data {
 }
 
 const useTrailors = (slug: string) => {
-  const trailorService = new APIClient<Trailer>(`/games/${slug}/movies`);
+  const trailorService = new APIClient<Trailor>(`/games/${slug}/movies`);
   return useQuery({
     queryKey: ["trailers", slug],
     queryFn: trailorService.getAll,
