@@ -1,16 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-client";
+import { Trailor } from "../entities/Trailor";
 
-interface Data {
-    480: string;
-    max: string;
-}
-
-interface Trailor {
-  id: number;
-  name: string;
-  preview: string;
-  data: Data;
+export interface Data {
+  480: string;
+  max: string;
 }
 
 const useTrailors = (slug: string) => {
